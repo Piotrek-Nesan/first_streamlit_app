@@ -23,7 +23,12 @@ streamlit.dataframe(frutis_to_show)
 
 # New Section to display fruityvice api response
 streamlit.header("Fruityvice Fruit Advice!")
+
 import requests
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
 streamlit.text(fruityvice_response.json())
 
+# Tworzymy nowa variable z jsona ktory mamy z api, oraz dokonujemy extrakcji danych z jasona do normalnego formatu
+fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+# wrzucamy dane ktore juz nie sa jasonem do dataframe
+streamlit.dataframe(fruityvice_normalized)
