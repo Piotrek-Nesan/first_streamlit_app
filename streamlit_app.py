@@ -57,10 +57,6 @@ if streamlit.button('Get Fruit Load List'):
     my_data_rows = get_fruit_load_list()
     streamlit.dataframe(my_data_rows)
     
-#import snowflake_connector
-# don't run anything past here while we troubleshoot
-streamlit.stop()
-
 streamlit.header("The fruit load list contains:")
 
 # Allow the end user to add a fruit to the list
